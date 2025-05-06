@@ -5,12 +5,21 @@ import { useCart } from '../context/CartContext'
 import Image from 'next/image'
 import OrderModal from '../components/OrderModal'
 
+interface OrderData {
+  name: string
+  email: string
+  phone: string
+  address: string
+  city: string
+  note?: string
+}
+
 export default function Sepet() {
   const { cart, removeFromCart, updateQuantity, totalItems, totalPrice } = useCart()
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleOrderSubmit = async (orderData: any) => {
+  const handleOrderSubmit = async (orderData: OrderData) => {
     try {
       setIsSubmitting(true)
       

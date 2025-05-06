@@ -1,17 +1,33 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
+interface OrderData {
+  name: string
+  email: string
+  phone: string
+  address: string
+  city: string
+  note?: string
+}
+
+interface CartItem {
+  id: number
+  name: string
+  price: number
+  quantity: number
+}
+
 export async function POST(request: Request) {
   try {
     const data = await request.json()
-    const { orderData, cartItems } = data
+    const { orderData, cartItems }: { orderData: OrderData; cartItems: CartItem[] } = data
 
     // E-posta gönderici ayarları
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: 'info.bereketsiseleri@gmail.com',
-        pass: 'rcqx gucr tucm exyc' // Gmail'den alacağınız uygulama şifresi
+        pass: 'your-app-password' // Gmail'den alacağınız uygulama şifresi
       }
     })
 
@@ -32,14 +48,14 @@ export async function POST(request: Request) {
         
         <h3>Sipariş Edilen Ürünler:</h3>
         <ul>
-          ${cartItems.map((item: any) => `
+          ${cartItems.map((item) => `
             <li>
               ${item.name} - ${item.quantity} adet - ${item.price} TL
             </li>
           `).join('')}
         </ul>
         
-        <h3>Toplam Tutar: ${cartItems.reduce((total: number, item: any) => total + (item.price * item.quantity), 0).toFixed(2)} TL</h3>
+        <h3>Toplam Tutar: ${cartItems.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2)} TL</h3>
       `
     }
 
