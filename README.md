@@ -1,24 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bereket Şişeleri E-Ticaret Sitesi
 
-## Getting Started
+Bu proje, Bereket Şişeleri için geliştirilmiş bir e-ticaret web sitesidir.
 
-First, run the development server:
+## Özellikler
 
+- Ürün listeleme ve detay görüntüleme
+- Sepet yönetimi
+- Sipariş oluşturma
+- E-posta ile sipariş bildirimi
+- Responsive tasarım
+
+## Teknolojiler
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Nodemailer
+
+## Kurulum
+
+1. Projeyi klonlayın:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/emrhnccn/Bereketsisesi.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Bağımlılıkları yükleyin:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Geliştirme sunucusunu başlatın:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Tarayıcınızda [http://localhost:3000](http://localhost:3000) adresini açın.
+
+## Lisans
+
+Bu proje MIT lisansı altında lisanslanmıştır.
 
 ## Learn More
 
