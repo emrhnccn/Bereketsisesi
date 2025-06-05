@@ -27,7 +27,7 @@ export async function POST(request: Request) {
       service: 'gmail',
       auth: {
         user: 'info.bereketsiseleri@gmail.com',
-        pass: 'your-app-password' // Gmail'den alacağınız uygulama şifresi
+        pass: process.env.GMAIL_APP_PASSWORD // Gmail'den alacağınız uygulama şifresi
       }
     })
 
